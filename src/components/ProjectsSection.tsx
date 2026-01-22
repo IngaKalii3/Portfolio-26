@@ -153,12 +153,7 @@ function ProjectCard({
                 <project.icon className="w-6 h-6 text-primary" />
               </div>
 
-              <div className="flex items-center gap-3">
-                {project.kind && <span className="text-[11px] font-mono px-2 py-1 rounded-full border border-foreground/10 bg-muted/40 text-muted-foreground">
-                    {project.kind}
-                  </span>}
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </div>
+              
             </div>
 
             <div>
