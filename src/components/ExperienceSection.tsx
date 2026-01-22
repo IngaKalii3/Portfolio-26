@@ -65,7 +65,7 @@ export const ExperienceSection = () => {
                     </div>
                   </div>
 
-                  <span className="inline-block bg-accent/50 text-accent-foreground text-xs font-mono rounded-full px-[8px] py-[6px]">
+                  <span className="inline-block bg-accent/50 text-accent-foreground text-xs font-mono rounded-full py-[6px] px-[6px]">
                     {exp.type}
                   </span>
 

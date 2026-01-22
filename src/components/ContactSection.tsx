@@ -1,10 +1,8 @@
 import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Github } from "lucide-react";
 import { WindowCard } from "./WindowCard";
-
 export const ContactSection = () => {
-  return (
-    <section id="contact" className="py-20 md:py-32">
-      <div className="container mx-auto px-4 md:px-8">
+  return <section id="contact" className="py-20 md:py-32">
+      <div className="container mx-auto md:px-8 px-[22px]">
         <div className="max-w-2xl mx-auto text-center space-y-4 mb-12">
           <p className="font-mono text-sm text-primary">Get In Touch</p>
           <h2 className="section-title">
@@ -20,10 +18,7 @@ export const ContactSection = () => {
           <WindowCard title="connect.sh" className="shadow-window">
             <div className="space-y-6">
               <div className="space-y-4">
-                <a
-                  href="mailto:ingakaltak7@gmail.com"
-                  className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-accent transition-colors group"
-                >
+                <a href="mailto:ingakaltak7@gmail.com" className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-accent transition-colors group">
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-primary" />
                     <div>
@@ -34,10 +29,7 @@ export const ContactSection = () => {
                   <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </a>
 
-                <a
-                  href="tel:215-791-5906"
-                  className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-accent transition-colors group"
-                >
+                <a href="tel:215-791-5906" className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-accent transition-colors group">
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-primary" />
                     <div>
@@ -62,26 +54,15 @@ export const ContactSection = () => {
               <div className="border-t border-border pt-6">
                 <p className="font-mono text-xs text-muted-foreground mb-4">Social Links</p>
                 <div className="flex gap-3">
-                  <a
-                    href="#"
-                    className="flex items-center justify-center w-12 h-12 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="LinkedIn"
-                  >
+                  <a href="#" className="flex items-center justify-center w-12 h-12 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="LinkedIn">
                     <Linkedin className="w-5 h-5" />
                   </a>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center w-12 h-12 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
+                  
                 </div>
               </div>
             </div>
           </WindowCard>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
