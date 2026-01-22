@@ -6,6 +6,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Articles", href: "#articles" }, // added
   { label: "Contact", href: "#contact" },
 ];
 
@@ -54,13 +55,11 @@ export const Navigation = () => {
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a
-                key={link.href}
+                key={"mobile-" + link.href}
                 href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-between px-4 py-3 font-mono text-sm bg-muted rounded-lg hover:bg-accent transition-colors"
+                className="px-4 py-2 font-mono text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
-                <ArrowUpRight className="w-4 h-4" />
               </a>
             ))}
           </div>
