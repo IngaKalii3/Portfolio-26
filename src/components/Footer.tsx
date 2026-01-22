@@ -1,5 +1,5 @@
 export const Footer = () => {
-  return <footer className="py-8 border-t border-border">
+  return <footer className="border-t border-border py-[18px]">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-display text-lg font-bold">
@@ -8,7 +8,7 @@ export const Footer = () => {
           <p className="font-mono text-xs text-muted-foreground text-center">
             © {new Date().getFullYear()} All rights reserved.
           </p>
-          <p className="font-mono text-xs text-muted-foreground">
+          <p className="font-mono text-xs text-muted-foreground text-right">
             Built with passion & purpose
           </p>
         </div>
