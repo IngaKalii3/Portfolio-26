@@ -1,73 +1,115 @@
-# Welcome to your Lovable project
+# Portfolio-26
 
-## Project info
+Personal portfolio built with Vite + React + Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A clean, responsive portfolio to showcase projects, writing, and contact details.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Demo
+(If deployed) https://<your-username>.github.io/Portfolio-26/  
+Replace with your Netlify/Vercel/GitHub Pages URL.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Tech Stack
+- Vite
+- React (TypeScript)
+- Tailwind CSS
+- lucide-react (icons)
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Features
+- Home / hero section
+- Projects grid with links and screenshots
+- Articles / writing section (Markdown)
+- Responsive layout and dark mode
+- Easy-to-edit content (components + markdown files)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Local development
 
-Follow these steps:
+1. Clone
+```bash
+git clone https://github.com/IngaKalii3/Portfolio-26.git
+cd Portfolio-26
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. Install
+```bash
+npm install
+# or
+pnpm install
+# or
+yarn
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Run dev server
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Build for production
+```bash
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+5. Preview build
+```bash
+npm run preview
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Content & Articles
+Articles live as Markdown files under `/src` or `/articles` (adjust path to your setup). Example file names should match the `WindowCard` titles (e.g., `the-annual-reckoning-ai-predictions-vs-reality.md`).
 
-## What technologies are used for this project?
+If you want frontmatter (date, author, tags) added to each article for better routing/rendering, I can add that.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Linting & Formatting
+Add & run:
+- ESLint
+- Prettier
+- (optional) husky + lint-staged for pre-commit checks
 
-## How can I deploy this project?
+Example:
+```bash
+npm install -D eslint prettier eslint-config-prettier
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Deployment
+- GitHub Pages: set repo Pages to `main` → `/ (root)` or configure to serve `dist/`
+- Vercel / Netlify: connect repo and set build command `npm run build`, publish `dist/`
 
-Yes, you can!
+Add SEO meta tags to `index.html` (title, description, open graph).
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Suggestions / Next Steps (I can do these)
+- Add meaningful README screenshots/GIFs (I can produce placeholders).
+- Add frontmatter to article markdown files (date, author, tags).
+- Add ESLint + Prettier configuration and format the repo.
+- Wire up deployment (Netlify/Vercel) or add GH Pages config.
+- Fix any broken links and confirm article paths (e.g., `/articles/...`).
+
+---
+
+## Contact
+- Name: Your Name
+- Email: you@example.com
+- GitHub: https://github.com/IngaKalii3
+
+---
+
+If you want, I can:
+- Commit this README to `main` for you, or
+- Create ESLint/Prettier configs and run a first pass, or
+- Add frontmatter to the two article files and update the `ArticlesSection` links.
+
+Which would you like me to do next?
