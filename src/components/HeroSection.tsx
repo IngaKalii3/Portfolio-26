@@ -70,12 +70,12 @@ export const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-xl hover:bg-primary/90 transition-colors shadow-card">
+              <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-xl hover:bg-primary/90 transition-colors shadow-card border-fuchsia-400 border border-solid">
                 Get in Touch
                 <ArrowDown className="w-4 h-4 rotate-[-45deg]" />
               </a>
 
-              <a href="#experience" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 bg-background/40 backdrop-blur font-mono text-sm rounded-xl hover:bg-muted/60 transition-colors">
+              <a href="#experience" className="inline-flex items-center justify-center gap-2 px-6 py-3 border bg-background/40 backdrop-blur font-mono text-sm rounded-xl hover:bg-muted/60 transition-colors border-solid border-fuchsia-500">
                 View Experience
               </a>
 
@@ -140,7 +140,7 @@ export const HeroSection = () => {
                         </div>
 
                         <div className="flex-wrap pt-1 gap-[4px] flex items-center justify-center">
-                          {["AI Policy", "Cybersecurity", "Consulting"].map(tag => <span key={tag} className="py-1 bg-secondary/70 text-secondary-foreground text-[11px] sm:text-xs font-mono rounded-full border border-foreground/10 px-[4px]">
+                          {["AI Policy", "Cybersecurity", "Consulting"].map(tag => <span key={tag} className="py-1 text-secondary-foreground text-[11px] sm:text-xs font-mono rounded-full border border-foreground/10 px-[4px] bg-fuchsia-200">
                               {tag}
                             </span>)}
                         </div>

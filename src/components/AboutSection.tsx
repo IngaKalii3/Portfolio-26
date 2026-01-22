@@ -24,7 +24,7 @@ export const AboutSection = () => {
           {/* Image Side */}
           <div className="relative animate-fade-up">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden border-2 border-foreground/10 shadow-card">
-              <img src={heroImage} alt="Inga Kaltak - AI Consultant" className="w-full h-full object-fill" />
+              <img src={heroImage} alt="Inga Kaltak - AI Consultant" className="w-full h-full object-fill border-fuchsia-400 border-solid border-2" />
             </div>
             {/* Decorative elements */}
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
@@ -58,7 +58,7 @@ export const AboutSection = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
-              {highlights.map((item, index) => <div key={item.title} className="p-4 bg-card rounded-xl border border-border hover:border-primary/30 transition-colors">
+              {highlights.map((item, index) => <div key={item.title} className="p-4 bg-card rounded-xl border transition-colors border-fuchsia-400 border-solid">
                   <item.icon className="w-6 h-6 text-primary mb-2" />
                   <h4 className="font-display font-bold text-sm">{item.title}</h4>
                   <p className="text-xs text-muted-foreground mt-1">{item.description}</p>
