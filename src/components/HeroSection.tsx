@@ -113,7 +113,7 @@ export const HeroSection = () => {
 
                     <WindowCard title="contact.json" className="shadow-card border border-foreground/10 bg-background/60 backdrop-blur rounded-2xl">
                       <div className="space-y-6 p-5">
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-primary/20 to-accent/40 rounded-full mx-auto flex items-center justify-center border border-foreground/10">
+                        <div className="w-16 h-16 sm:w-20 sm:h-24 med-gradient-to-br from-primary/20 to-accent/40 rounded-full mx-auto flex items-center justify-center border border-foreground/10">
                           <span className="font-display text-2xl sm:text-3xl font-bold">IK</span>
                         </div>
 
@@ -144,7 +144,7 @@ export const HeroSection = () => {
                           </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-2 pt-1 justify-center">
+                        <div className="flex flex-wrap pt-1 justify-center gap-[4px]">
                           {["AI Policy", "Cybersecurity", "Consulting"].map(tag => <span key={tag} className="px-3 py-1 bg-secondary/70 text-secondary-foreground text-[11px] sm:text-xs font-mono rounded-full border border-foreground/10">
                               {tag}
                             </span>)}
