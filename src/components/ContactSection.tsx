@@ -51,15 +51,7 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="border-t border-border pt-6">
-                <p className="font-mono text-xs text-muted-foreground mb-4">Social Links</p>
-                <div className="flex gap-3">
-                  <a href="#" className="flex items-center justify-center w-12 h-12 bg-muted rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="LinkedIn">
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                  
-                </div>
-              </div>
+              
             </div>
           </WindowCard>
         </div>
