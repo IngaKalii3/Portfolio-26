@@ -37,7 +37,7 @@ export const HeroSection = () => {
     hx: 50,
     hy: 35
   });
-  return <section className="relative overflow-hidden min-h-screen flex items-center pt-16 pb-16 sm:pb-20">
+  return <section className="relative overflow-hidden min-h-screen flex items-center pt-16 pb-16 sm:pb-20 py-[44px]">
       {/* Decorative glows */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-24 right-[-7rem] w-[22rem] h-[22rem] bg-accent/25 rounded-full blur-3xl" />
@@ -52,24 +52,24 @@ export const HeroSection = () => {
           {/* Left */}
           <div className="space-y-7 sm:space-y-8 animate-fade-up">
             <div className="space-y-2">
-              <p className="font-mono text-xs sm:text-sm text-primary tracking-wide">Hello, I&apos;m</p>
+              <p className="font-mono text-xs text-primary tracking-wide text-center sm:text-lg">Hello, I&apos;m</p>
 
-              <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05]">
+              <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.05] text-center">
                 Inga <br />
                 <span className="highlight-text">Kaltak</span>
               </h1>
 
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light mt-3">
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light mt-3 text-center">
                 Applied AI Consultant & Engineer
               </p>
             </div>
 
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-base text-muted-foreground max-w-xl leading-relaxed text-center sm:text-2xl">
               Building intelligent systems at the intersection of AI, security, and policy.
               Transforming complex regulatory frameworks into deployable solutions.
             </p>
 
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+            <div className="flex-col flex-wrap gap-3 sm:gap-4 items-center justify-center flex sm:flex-row">
               <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-xl hover:bg-primary/90 transition-colors shadow-card">
                 Get in Touch
                 <ArrowDown className="w-4 h-4 rotate-[-45deg]" />
@@ -164,9 +164,7 @@ export const HeroSection = () => {
                 <div className="mx-auto mt-2 w-[85%] h-6 rounded-full bg-black/20 blur-xl -z-10 relative" />
               </div>
 
-              <p className="mt-4 text-xs sm:text-sm text-muted-foreground text-center lg:text-right">
-                Tip: hover the laptop for depth ✨
-              </p>
+              
             </div>
           </div>
         </div>
