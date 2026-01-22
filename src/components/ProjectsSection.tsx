@@ -137,9 +137,7 @@ export const ProjectsSection: React.FC = () => {
           <h2 className="section-title">
             Key <span className="highlight-text">Projects</span>
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base max-w-2xl">
-            Swipe on mobile. Hover on desktop. Two lanes: Featured + Creative.
-          </p>
+          
         </div>
 
         {/* Tabs */}
