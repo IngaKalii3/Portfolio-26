@@ -58,7 +58,7 @@ export const AboutSection = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
-              {highlights.map((item, index) => <div key={item.title} className="p-4 bg-card rounded-xl border border-border hover:border-primary/30 transition-colors">
+              {highlights.map((item, index) => <div key={item.title} className="p-4 rounded-xl border border-border hover:border-primary/30 transition-colors bg-primary-foreground">
                   <item.icon className="w-6 h-6 text-primary mb-2" />
                   <h4 className="font-display font-bold text-sm">{item.title}</h4>
                   <p className="text-xs text-muted-foreground mt-1">{item.description}</p>

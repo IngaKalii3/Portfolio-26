@@ -21,7 +21,7 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   return <nav className="fixed inset-x-0 top-0 z-50">
       <div className={cn("mx-3 mt-3 rounded-2xl bg-background/80 backdrop-blur-md", "border border-border", "shadow-[0_10px_30px_-10px_rgba(0,0,0,0.35)]", "transition-transform duration-200", "active:translate-y-[1px]")}>
-        <div className="flex items-center justify-between h-12 px-[14px] border border-fuchsia-600 border-solid bg-transparent">
+        <div className="h-12 border border-fuchsia-600 border-solid px-[10px] flex items-start justify-between bg-white">
           {/* Logo */}
           <a href="#" className="font-display text-lg font-bold tracking-tight">
             IK<span className="text-primary">.</span>

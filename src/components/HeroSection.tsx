@@ -75,7 +75,7 @@ export const HeroSection = () => {
                 <ArrowDown className="w-4 h-4 rotate-[-45deg]" />
               </a>
 
-              <a href="#experience" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 bg-background/40 backdrop-blur font-mono text-sm rounded-xl hover:bg-muted/60 transition-colors">
+              <a href="#experience" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 backdrop-blur font-mono text-sm rounded-xl transition-colors bg-primary-foreground">
                 View Experience
               </a>
 
