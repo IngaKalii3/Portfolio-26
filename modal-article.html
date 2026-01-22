@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Open Article in Modal</title>
+  <style>
+    /* simple modal styles */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal {
+      background: white;
+      max-width: 900px;
+      max-height: 80vh;
+      overflow: auto;
+      padding: 1.25rem;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    .modal.show { display: flex; }
+    .modal .close-btn { float: right; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <button id="open-article">Open Article (Modal)</button>
+
+  <div id="modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" id="modal">
+      <button class="close-btn" id="close-btn">Close</button>
+      <div id="article-container">Loading…</div>
+    </div>
+  </div>
+
+  <!-- marked.js for client-side markdown -> HTML -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    // Path to your markdown file in the public folder.
+    // Because your file is in public/articles/, it will usually be accessible at /articles/filename.md
+    const ARTICLE_URL = '/articles/cost-effective-open-source-llm-deployment.md';
+
+    const openBtn = document.getElementById('open-article');
+    const backdrop = document.getElementById('modal-backdrop');
+    const closeBtn = document.getElementById('close-btn');
+    const container = document.getElementById('article-container');
+
+    async function loadArticle() {
+      try {
+        const res = await fetch(ARTICLE_URL);
+        if (!res.ok) throw new Error('Failed to fetch article: ' + res.status);
+        const md = await res.text();
+        // Convert to HTML using marked
+        container.innerHTML = marked.parse(md);
+        // Optionally, run any syntax highlighting here
+      } catch (err) {
+        container.innerHTML = '<p style="color: red;">Error loading article.</p><pre>' + err.message + '</pre>';
+      }
+    }
+
+    openBtn.addEventListener('click', async () => {
+      // load once (you can add caching)
+      await loadArticle();
+      backdrop.classList.add('show');
+      backdrop.setAttribute('aria-hidden', 'false');
+      // focus trap / accessibility improvements are recommended
+    });
+
+    closeBtn.addEventListener('click', () => {
+      backdrop.classList.remove('show');
+      backdrop.setAttribute('aria-hidden', 'true');
+    });
+
+    // close on backdrop click (except when clicking inside modal)
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) {
+        backdrop.classList.remove('show');
+        backdrop.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+</html>
