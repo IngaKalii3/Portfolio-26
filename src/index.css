@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -17,20 +18,20 @@
     --popover-foreground: 30 10% 15%;
 
     /* Warm terracotta accent */
-    --primary: 18 75% 55%;
-    --primary-foreground: 40 30% 98%;
+    --primary: 142 76.6423% 73.1373%;
+    --primary-foreground: 270 100% 98.0392%;
 
     /* Soft sage green */
-    --secondary: 150 25% 85%;
-    --secondary-foreground: 150 30% 25%;
+    --secondary: 291 93.1034% 82.9412%;
+    --secondary-foreground: 142 76.2162% 36.2745%;
 
     /* Muted tones */
     --muted: 40 20% 90%;
     --muted-foreground: 30 10% 45%;
 
     /* Warm peach accent */
-    --accent: 25 80% 75%;
-    --accent-foreground: 30 10% 15%;
+    --accent: 291 93.1034% 82.9412%;
+    --accent-foreground: 330 81.1881% 60.3922%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
