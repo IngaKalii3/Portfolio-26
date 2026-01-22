@@ -24,7 +24,7 @@ export const AboutSection = () => {
           {/* Image Side */}
           <div className="relative animate-fade-up">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden border-2 border-foreground/10 shadow-card">
-              <img src={heroImage} alt="Inga Kaltak - AI Consultant" className="w-full h-full object-scale-down" />
+              <img src={heroImage} alt="Inga Kaltak - AI Consultant" className="w-full h-full object-fill" />
             </div>
             {/* Decorative elements */}
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
