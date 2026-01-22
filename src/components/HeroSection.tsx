@@ -37,7 +37,7 @@ export const HeroSection = () => {
     hx: 50,
     hy: 35
   });
-  return <section className="relative overflow-hidden min-h-screen pt-16 pb-16 sm:pb-20 flex items-center justify-center py-[60px]">
+  return <section className="relative overflow-hidden min-h-screen pt-16 pb-16 sm:pb-20 flex items-center justify-center bg-fuchsia-50 py-[32px]">
       {/* Decorative glows */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-24 right-[-7rem] w-[22rem] h-[22rem] bg-accent/25 rounded-full blur-3xl" />
