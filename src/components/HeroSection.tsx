@@ -80,9 +80,7 @@ export const HeroSection = () => {
               </a>
 
               {/* ✅ LinkedIn */}
-              <a href="https://www.linkedin.com/in/ik11/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 bg-background/40 backdrop-blur font-mono text-sm rounded-xl hover:bg-muted/60 transition-colors">
-                LinkedIn <Linkedin className="w-4 h-4" />
-              </a>
+              
             </div>
           </div>
 
@@ -125,10 +123,7 @@ export const HeroSection = () => {
                             </a>
                           </div>
 
-                          <div className="flex items-center gap-3 text-sm">
-                            <Phone className="w-4 h-4 text-primary" />
-                            <span className="font-mono">215-791-5906</span>
-                          </div>
+                          
 
                           <div className="flex items-center gap-3 text-sm">
                             <MapPin className="w-4 h-4 text-primary" />
@@ -144,8 +139,8 @@ export const HeroSection = () => {
                           </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-2 pt-1 justify-center">
-                          {["AI Policy", "Cybersecurity", "Consulting"].map(tag => <span key={tag} className="px-3 py-1 bg-secondary/70 text-secondary-foreground text-[11px] sm:text-xs font-mono rounded-full border border-foreground/10">
+                        <div className="flex-wrap pt-1 gap-[4px] flex items-center justify-center">
+                          {["AI Policy", "Cybersecurity", "Consulting"].map(tag => <span key={tag} className="py-1 bg-secondary/70 text-secondary-foreground text-[11px] sm:text-xs font-mono rounded-full border border-foreground/10 px-[4px]">
                               {tag}
                             </span>)}
                         </div>
