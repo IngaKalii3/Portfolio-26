@@ -1,175 +1,216 @@
-import React, { useMemo, useRef, useState } from "react";
-import { ArrowDown, Mail, Phone, MapPin, Linkedin } from "lucide-react";
-import { WindowCard } from "./WindowCard";
-export const HeroSection = () => {
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import {
+  ArrowDown,
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Calendar,
+  ArrowUpRight
+} from "lucide-react";
+
+/* =========================
+   DATA
+========================= */
+
+const experiences = [
+  {
+    title: "AI Policy Engineer",
+    company: "Independent Consultant",
+    type: "Self-employed",
+    period: "Oct 2023 - Present",
+    location: "Philadelphia, PA",
+    highlights: [
+      "Built FERPA/Title IX compliance dashboards for school districts",
+      "Launched AI consultancy delivering automation prototypes",
+      "Converted policy frameworks into deployable controls",
+      "Developed GPT-4 / Claude regulatory extraction tools",
+      "Conducted NIST AI RMF feasibility assessments",
+      "Integrated open-source LLMs cutting infra costs 40%"
+    ]
+  },
+  {
+    title: "Penetration Tester",
+    company: "Defense Intelligence Agency & Lockheed Martin",
+    type: "Contract",
+    period: "Nov 2024 - May 2025",
+    location: "Washington, DC (Remote)",
+    highlights: [
+      "Executed 12+ authorized penetration tests",
+      "Discovered 47 critical vulnerabilities",
+      "Reduced security incidents by 30%",
+      "Briefed senior stakeholders with risk action plans"
+    ]
+  }
+];
+
+/* =========================
+   TYPEWRITER HOOK
+========================= */
+
+function useTypewriter(text: string, speed = 50) {
+  const [output, setOutput] = useState("");
+  useEffect(() => {
+    let i = 0;
+    const id = setInterval(() => {
+      setOutput(text.slice(0, i));
+      i++;
+      if (i > text.length) clearInterval(id);
+    }, speed);
+    return () => clearInterval(id);
+  }, [text, speed]);
+  return output;
+}
+
+/* =========================
+   COMPONENT
+========================= */
+
+export default function HeroExperience() {
+  const typed = useTypewriter("Applied AI Consultant & Engineer");
   const laptopRef = useRef<HTMLDivElement | null>(null);
-  const [tilt, setTilt] = useState({
-    rx: 0,
-    ry: 0,
-    hx: 50,
-    hy: 35
-  });
+
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0, hx: 50, hy: 40 });
+
   const supportsHover = useMemo(() => {
     if (typeof window === "undefined") return false;
-    return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    return window.matchMedia("(hover: hover)").matches;
   }, []);
-  const handleMouseMove = (e: React.MouseEvent) => {
+
+  const onMove = (e: React.MouseEvent) => {
     if (!supportsHover || !laptopRef.current) return;
-    const rect = laptopRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const r = laptopRef.current.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
     setTilt({
-      rx: -((y - rect.height / 2) / rect.height) * 8,
-      ry: (x - rect.width / 2) / rect.width * 10,
-      hx: x / rect.width * 100,
-      hy: y / rect.height * 100
+      rx: -((y - r.height / 2) / r.height) * 8,
+      ry: ((x - r.width / 2) / r.width) * 10,
+      hx: (x / r.width) * 100,
+      hy: (y / r.height) * 100
     });
   };
-  const resetTilt = () => setTilt({
-    rx: 0,
-    ry: 0,
-    hx: 50,
-    hy: 35
-  });
-  return <section className="relative min-h-[85vh] flex items-center overflow-hidden py-14 sm:py-16">
-      {/* Background */}
+
+  return (
+    <section className="relative overflow-hidden">
+      {/* Animated background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-24 right-[-6rem] w-64 h-64 bg-accent/20 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 left-[-6rem] w-80 h-80 bg-secondary/20 rounded-full blur-3xl" />
+        <div className="absolute w-[60rem] h-[60rem] bg-primary/20 rounded-full blur-3xl animate-pulse -top-40 -left-40" />
+        <div className="absolute w-[50rem] h-[50rem] bg-accent/20 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite] bottom-[-20rem] right-[-20rem]" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-2 items-center">
-          {/* LEFT */}
-          <div className="space-y-6 text-center lg:text-left animate-fade-up">
-            <div className="space-y-2">
-              <p className="font-mono text-xs tracking-wide text-primary">
-                Hello, I&apos;m
-              </p>
-
-              <h1 className="font-display font-bold leading-[1.05] text-[2.2rem] sm:text-5xl md:text-6xl">
-                Inga <br />
-                <span className="highlight-text">Kaltak</span>
-              </h1>
-
-              <p className="text-muted-foreground text-base sm:text-lg">
-                Applied AI Consultant & Engineer
-              </p>
-            </div>
-
-            <p className="max-w-xl mx-auto lg:mx-0 text-muted-foreground leading-relaxed text-sm sm:text-base">
-              Building intelligent systems at the intersection of AI, security,
-              and policy. Turning regulatory complexity into deployable systems.
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-2">
-              <HeroButton primary href="#contact">
-                Get in Touch <ArrowDown className="w-3.5 h-3.5 -rotate-45" />
-              </HeroButton>
-
-              <HeroButton href="#experience">
-                Experience
-              </HeroButton>
-
-              <HeroButton href="https://www.linkedin.com/in/ik11/" external>
-                LinkedIn <Linkedin className="w-3.5 h-3.5" />
-              </HeroButton>
-            </div>
+      {/* HERO */}
+      <div className="container mx-auto px-4 py-24 grid gap-16 lg:grid-cols-2 items-center">
+        <div className="space-y-6 text-center lg:text-left">
+          <p className="font-mono text-xs text-primary">Hello, I'm</p>
+          <h1 className="font-display text-5xl sm:text-6xl font-bold leading-tight">
+            Inga <span className="text-primary">Kaltak</span>
+          </h1>
+          <p className="font-mono text-muted-foreground h-6">{typed}<span className="animate-pulse">▍</span></p>
+          <p className="max-w-xl mx-auto lg:mx-0 text-muted-foreground">
+            Building intelligent systems at the intersection of AI, security, and policy.
+          </p>
+          <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+            <HeroButton href="#experience" primary>
+              View Experience <ArrowDown className="w-4 h-4 -rotate-45" />
+            </HeroButton>
+            <HeroButton href="https://www.linkedin.com/in/ik11" external>
+              LinkedIn <Linkedin className="w-4 h-4" />
+            </HeroButton>
           </div>
+        </div>
 
-          {/* RIGHT */}
-          <div className="animate-fade-up stagger-2">
-            <div ref={laptopRef} onMouseMove={handleMouseMove} onMouseLeave={resetTilt} className="mx-auto max-w-sm sm:max-w-md [perspective:1100px]">
-              <div className="relative transition-transform duration-200 motion-reduce:transform-none" style={{
-              transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`
-            }}>
-                {/* Glow */}
-                <div className="absolute -inset-5 -z-10 rounded-[2rem] blur-2xl opacity-60 pointer-events-none" style={{
-                background: "radial-gradient(circle at 30% 20%, rgba(124,58,237,0.22), transparent 55%), radial-gradient(circle at 70% 80%, rgba(34,197,94,0.16), transparent 55%)"
-              }} />
-
-                {/* Screen */}
-                <div className="rounded-3xl border border-foreground/10 bg-background/60 backdrop-blur shadow-window overflow-hidden">
-                  <div className="h-7 border-b border-foreground/10 bg-accent/40" />
-
-                  <div className="relative p-4 sm:p-5">
-                    <div className="absolute inset-0 pointer-events-none" style={{
-                    background: `radial-gradient(circle at ${tilt.hx}% ${tilt.hy}%, rgba(255,255,255,0.1), transparent 55%)`
-                  }} />
-
-                    <WindowCard title="contact.json" className="rounded-2xl border border-foreground/10 bg-background/60 backdrop-blur shadow-card">
-                      <div className="space-y-5 p-4">
-                        <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/40 border border-foreground/10 flex items-center justify-center">
-                          <span className="font-display font-bold text-xl">
-                            IK
-                          </span>
-                        </div>
-
-                        <div className="space-y-2 text-xs px-[2px] py-[2px]">
-                          <ContactRow icon={<Mail />} text="ingakaltak7@gmail.com" href="mailto:ingakaltak7@gmail.com" />
-                          <ContactRow icon={<Phone />} text="215-791-5906" />
-                          <ContactRow icon={<MapPin />} text="Philadelphia, PA" />
-                          <ContactRow icon={<Linkedin />} text="linkedin.com/in/ik11" href="https://www.linkedin.com/in/ik11/" />
-                        </div>
-
-                        <div className="flex flex-wrap justify-center gap-1.5">
-                          {["AI Policy", "Cybersecurity", "Consulting"].map(tag => <span key={tag} className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-secondary/70 border border-foreground/10">
-                              {tag}
-                            </span>)}
-                        </div>
-                      </div>
-                    </WindowCard>
-                  </div>
+        {/* Laptop */}
+        <div
+          ref={laptopRef}
+          onMouseMove={onMove}
+          onMouseLeave={() => setTilt({ rx: 0, ry: 0, hx: 50, hy: 40 })}
+          className="mx-auto max-w-md [perspective:1200px]"
+        >
+          <div
+            className="transition-transform duration-200"
+            style={{ transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)` }}
+          >
+            {/* Screen */}
+            <div className="rounded-3xl border border-foreground/10 bg-background/70 backdrop-blur shadow-2xl overflow-hidden">
+              <div className="h-7 bg-gradient-to-r from-muted/50 to-muted border-b border-foreground/10" />
+              <div className="p-4 relative">
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle at ${tilt.hx}% ${tilt.hy}%, rgba(255,255,255,0.15), transparent 60%)`
+                  }}
+                />
+                <div className="space-y-3 font-mono text-xs">
+                  <ContactRow icon={<Mail />} text="ingakaltak7@gmail.com" />
+                  <ContactRow icon={<Phone />} text="215-791-5906" />
+                  <ContactRow icon={<MapPin />} text="Philadelphia, PA" />
                 </div>
-
-                {/* Base */}
-                <div className="relative mx-auto mt-2 w-[90%]">
-                  <div className="h-4 rounded-b-[2rem] bg-background/60 backdrop-blur border border-foreground/10 shadow-card" />
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-1.5 rounded-full bg-foreground/10" />
-                </div>
-
-                <div className="relative mx-auto mt-2 w-[80%] h-5 rounded-full bg-black/20 blur-xl -z-10" />
               </div>
             </div>
+            {/* Base */}
+            <div className="mt-2 h-4 rounded-b-3xl bg-background/60 border border-foreground/10" />
           </div>
         </div>
       </div>
-    </section>;
-};
 
-/* ---------- Small 3D Button ---------- */
+      {/* EXPERIENCE */}
+      <div id="experience" className="container mx-auto px-4 pb-32 space-y-6">
+        <h2 className="text-3xl font-display font-bold">Experience</h2>
+        {experiences.map(exp => (
+          <div key={exp.title} className="rounded-2xl border border-foreground/10 bg-background/60 backdrop-blur p-6 shadow-card">
+            <div className="flex flex-col md:flex-row md:justify-between gap-2">
+              <div>
+                <h3 className="font-display font-bold text-xl flex items-center gap-2">
+                  {exp.title} <ArrowUpRight className="w-4 h-4 text-primary" />
+                </h3>
+                <p className="text-muted-foreground">{exp.company}</p>
+              </div>
+              <div className="flex gap-4 text-xs font-mono text-muted-foreground">
+                <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{exp.period}</span>
+                <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />{exp.location}</span>
+              </div>
+            </div>
+            <ul className="mt-4 space-y-2">
+              {exp.highlights.map(h => (
+                <li key={h} className="text-sm text-muted-foreground flex gap-2">
+                  <span className="mt-2 w-1.5 h-1.5 bg-primary rounded-full" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
-const HeroButton = ({
-  children,
-  href,
-  primary,
-  external
-}: {
-  children: React.ReactNode;
-  href: string;
-  primary?: boolean;
-  external?: boolean;
-}) => <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className={`
-      inline-flex items-center gap-1.5
-      px-4 py-2 rounded-lg font-mono text-xs
-      transition-all duration-150
-      active:translate-y-[1px]
-      ${primary ? "bg-primary text-primary-foreground shadow-md hover:shadow-lg" : "border border-foreground/20 bg-background/60 backdrop-blur hover:bg-muted/60"}
-    `}>
-    {children}
-  </a>;
-const ContactRow = ({
-  icon,
-  text,
-  href
-}: {
-  icon: React.ReactNode;
-  text: string;
-  href?: string;
-}) => <div className="gap-2 font-mono flex items-start justify-start">
-    <span className="text-primary w-3.5 h-3.5">{icon}</span>
-    {href ? <a href={href} className="hover:text-primary transition break-all">
-        {text}
-      </a> : <span>{text}</span>}
-  </div>;
+/* =========================
+   UI PARTS
+========================= */
+
+function HeroButton({ children, href, primary, external }: any) {
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono transition-all active:translate-y-[1px] ${
+        primary
+          ? "bg-primary text-primary-foreground shadow-md hover:shadow-lg"
+          : "border border-foreground/20 bg-background/60 backdrop-blur hover:bg-muted/60"
+      }`}
+    >
+      {children}
+    </a>
+  );
+}
+
+function ContactRow({ icon, text }: any) {
+  return (
+    <div className="flex gap-2 items-center">
+      <span className="text-primary w-4 h-4">{icon}</span>
+      <span>{text}</span>
+    </div>
+  );
+}
