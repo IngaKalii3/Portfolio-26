@@ -1,12 +1,12 @@
 import { ArrowDown, Mail, Phone, MapPin } from "lucide-react";
 import { WindowCard } from "./WindowCard";
-
 export const HeroSection = () => {
-  return (
-    <section className="min-h-screen flex items-center pt-16 pb-20 relative overflow-hidden">
+  return <section className="min-h-screen flex items-center pt-16 pb-20 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 right-10 w-32 h-32 bg-accent/30 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-40 left-10 w-40 h-40 bg-secondary/40 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      <div className="absolute bottom-40 left-10 w-40 h-40 bg-secondary/40 rounded-full blur-3xl animate-float" style={{
+      animationDelay: "2s"
+    }} />
       
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -29,17 +29,11 @@ export const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-lg hover:bg-primary/90 transition-colors shadow-card"
-              >
+              <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-lg hover:bg-primary/90 transition-colors shadow-card">
                 Get in Touch
                 <ArrowDown className="w-4 h-4 rotate-[-45deg]" />
               </a>
-              <a
-                href="#experience"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-foreground/20 font-mono text-sm rounded-lg hover:bg-muted transition-colors"
-              >
+              <a href="#experience" className="inline-flex items-center gap-2 px-6 py-3 border-2 border-foreground/20 font-mono text-sm rounded-lg hover:bg-muted transition-colors">
                 View Experience
               </a>
             </div>
@@ -70,21 +64,15 @@ export const HeroSection = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {["AI Policy", "Cybersecurity", "Consulting"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-mono rounded-full"
-                    >
+                <div className="flex-wrap pt-2 flex items-start justify-center gap-[4px]">
+                  {["AI Policy", "Cybersecurity", "Consulting"].map(tag => <span key={tag} className="py-1 bg-secondary text-secondary-foreground text-xs font-mono rounded-full px-[10px] text-center">
                       {tag}
-                    </span>
-                  ))}
+                    </span>)}
                 </div>
               </div>
             </WindowCard>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
