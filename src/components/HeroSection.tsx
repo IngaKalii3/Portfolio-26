@@ -1,146 +1,90 @@
-import React, { useEffect, useRef, useState } from "react";
-import { ArrowDown, Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { ArrowDown, Mail, Phone, MapPin } from "lucide-react";
 import { WindowCard } from "./WindowCard";
 
 export const HeroSection = () => {
-  const laptopRef = useRef<HTMLDivElement>(null);
-  const frame = useRef<number | null>(null);
-
-  const [tilt, setTilt] = useState({ rx: 0, ry: 0, hx: 50, hy: 40 });
-  const [canHover, setCanHover] = useState(false);
-
-  useEffect(() => {
-    setCanHover(
-      window.matchMedia("(hover: hover) and (pointer: fine)").matches
-    );
-  }, []);
-
-  const onMove = (e: React.MouseEvent) => {
-    if (!canHover || !laptopRef.current) return;
-
-    if (frame.current) cancelAnimationFrame(frame.current);
-
-    frame.current = requestAnimationFrame(() => {
-      const r = laptopRef.current!.getBoundingClientRect();
-      const x = e.clientX - r.left;
-      const y = e.clientY - r.top;
-
-      setTilt({
-        rx: -(y / r.height - 0.5) * 8,
-        ry: (x / r.width - 0.5) * 12,
-        hx: (x / r.width) * 100,
-        hy: (y / r.height) * 100
-      });
-    });
-  };
-
-  const reset = () =>
-    setTilt({ rx: 0, ry: 0, hx: 50, hy: 40 });
-
   return (
-    <section className="relative min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-14 items-center">
-        
-        {/* LEFT */}
-        <div className="space-y-7">
-          <p className="text-sm font-mono text-primary">Hello, I’m</p>
-
-          <h1 className="font-display text-5xl md:text-6xl font-bold leading-tight">
-            Inga <br />
-            <span className="highlight-text">Kaltak</span>
-          </h1>
-
-          <p className="text-xl text-muted-foreground">
-            Applied AI Consultant & Engineer
-          </p>
-
-          <p className="max-w-xl text-muted-foreground leading-relaxed">
-            Building intelligent systems at the intersection of AI, security, and policy.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <a className="btn-primary">
-              Get in Touch <ArrowDown className="w-4 h-4 -rotate-45" />
-            </a>
-            <a className="btn-secondary">View Experience</a>
-          </div>
-        </div>
-
-        {/* RIGHT – LAPTOP */}
-        <div
-          ref={laptopRef}
-          onMouseMove={onMove}
-          onMouseLeave={reset}
-          className="mx-auto max-w-lg perspective-1200"
-        >
-          <div
-            className="relative transition-transform duration-200"
-            style={{
-              transform: canHover
-                ? `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`
-                : undefined
-            }}
-          >
-            {/* Screen */}
-            <div className="rounded-2xl bg-zinc-900 border border-white/10 shadow-2xl overflow-hidden">
-              
-              {/* Camera notch */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-black/60" />
-
-              {/* OS chrome */}
-              <div className="h-8 px-4 flex items-center gap-2 bg-zinc-800">
-                <span className="w-3 h-3 bg-red-500 rounded-full" />
-                <span className="w-3 h-3 bg-yellow-400 rounded-full" />
-                <span className="w-3 h-3 bg-green-500 rounded-full" />
-              </div>
-
-              {/* Screen content */}
-              <div className="p-4 sm:p-6 font-sans bg-background">
-                <WindowCard title="contact.json">
-                  <div className="space-y-5">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/30 to-accent/40 mx-auto flex items-center justify-center">
-                      <span className="font-display text-2xl font-bold">IK</span>
-                    </div>
-
-                    <div className="space-y-3 text-sm">
-                      <Item icon={Mail} text="ingakaltak7@gmail.com" />
-                      <Item icon={Phone} text="215-791-5906" />
-                      <Item icon={MapPin} text="Philadelphia, PA" />
-                      <Item
-                        icon={Linkedin}
-                        link="https://linkedin.com/in/ik11"
-                        text="linkedin.com/in/ik11"
-                      />
-                    </div>
-                  </div>
-                </WindowCard>
-              </div>
+    <section className="min-h-screen flex items-center pt-16 pb-20 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-32 h-32 bg-accent/30 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-40 left-10 w-40 h-40 bg-secondary/40 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-up">
+            <div className="space-y-2">
+              <p className="font-mono text-sm text-primary">Hello, I'm</p>
+              <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight">
+                Inga <br />
+                <span className="highlight-text">Kaltak</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground font-light mt-4">
+                Applied AI Consultant & Engineer
+              </p>
             </div>
 
-            {/* Base */}
-            <div className="relative mt-3 h-4 bg-zinc-300/60 rounded-b-2xl">
-              <div className="absolute inset-x-1/2 -translate-x-1/2 top-0 w-20 h-1 bg-black/20 rounded-full" />
-            </div>
-          </div>
-
-          {canHover && (
-            <p className="text-xs text-muted-foreground mt-3 text-center">
-              Hover to explore depth
+            <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
+              Building intelligent systems at the intersection of AI, security, and policy. 
+              Transforming complex regulatory frameworks into deployable solutions.
             </p>
-          )}
+
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-lg hover:bg-primary/90 transition-colors shadow-card"
+              >
+                Get in Touch
+                <ArrowDown className="w-4 h-4 rotate-[-45deg]" />
+              </a>
+              <a
+                href="#experience"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-foreground/20 font-mono text-sm rounded-lg hover:bg-muted transition-colors"
+              >
+                View Experience
+              </a>
+            </div>
+          </div>
+
+          {/* Right Content - Contact Card */}
+          <div className="animate-fade-up stagger-2">
+            <WindowCard title="contact.json" className="max-w-md mx-auto lg:ml-auto shadow-window">
+              <div className="space-y-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/40 rounded-full mx-auto flex items-center justify-center">
+                  <span className="font-display text-3xl font-bold">IK</span>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 text-sm">
+                    <Mail className="w-4 h-4 text-primary" />
+                    <a href="mailto:ingakaltak7@gmail.com" className="font-mono hover:text-primary transition-colors">
+                      ingakaltak7@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Phone className="w-4 h-4 text-primary" />
+                    <span className="font-mono">215-791-5906</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    <span className="font-mono">Philadelphia, PA</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {["AI Policy", "Cybersecurity", "Consulting"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-mono rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </WindowCard>
+          </div>
         </div>
       </div>
     </section>
   );
 };
-
-const Item = ({ icon: Icon, text, link }: any) => (
-  <div className="flex items-center gap-3">
-    <Icon className="w-4 h-4 text-primary" />
-    {link ? (
-      <a href={link} className="hover:text-primary transition">{text}</a>
-    ) : (
-      <span>{text}</span>
-    )}
-  </div>
-);
