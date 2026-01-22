@@ -204,7 +204,7 @@ export const ArticlesSection: React.FC = () => {
       setMarkdown(cleaned);
     }).catch((e: any) => setError(e?.message ?? "Failed to load article")).finally(() => setLoading(false));
   }, [activeArticle]);
-  return <section id="articles" className="py-20 bg-inherit md:py-[28px]">
+  return <section id="articles" className="py-20 md:py-[28px] bg-fuchsia-50">
       <div className="container mx-auto px-4 md:px-8">
         <div className="space-y-4 mb-12">
           <p className="font-mono text-sm text-primary">Insights & Writing</p>

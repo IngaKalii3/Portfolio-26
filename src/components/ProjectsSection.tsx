@@ -121,7 +121,7 @@ export const ProjectsSection: React.FC = () => {
   useEffect(() => {
     requestAnimationFrame(() => scrollToCard(scrollerRef.current, 0));
   }, [tab]);
-  return <section id="projects" className="relative overflow-hidden py-14 sm:py-16 md:py-24 bg-fuchsia-100">
+  return <section id="projects" className="relative overflow-hidden py-14 sm:py-16 md:py-24 bg-fuchsia-50">
       {/* subtle depth bg */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-24 right-[-7rem] w-[22rem] h-[22rem] bg-primary/10 rounded-full blur-3xl" />
@@ -203,9 +203,9 @@ function ProjectCard({
 
         <WindowCard title={(project.id.slice(0, 42) + ".tsx").toLowerCase()} className="h-full rounded-2xl overflow-hidden border border-foreground/10 bg-background/65 backdrop-blur shadow-window hover:shadow-card transition-shadow duration-300">
           <div className="p-5 sm:p-6 space-y-4">
-            <div className="flex items-start justify-between gap-3">
+            <div className="flex items-start justify-between gap-[8px]">
               <div className="flex items-center gap-3">
-                <div className="p-3 rounded-2xl bg-primary/10 border border-foreground/10">
+                <div className="p-3 bg-primary/10 border border-foreground/10 rounded-sm py-[10px] px-[10px]">
                   <Icon className="text-primary h-[18px] w-[18px]" />
                 </div>
 

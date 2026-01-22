@@ -103,7 +103,7 @@ export const HeroSection = () => {
                   </div>
 
                   {/* Screen content */}
-                  <div className="relative p-5 sm:p-6">
+                  <div className="relative p-5 sm:p-6 py-[24px]">
                     {/* follow-cursor sheen */}
                     <div className="pointer-events-none absolute inset-0 opacity-80" style={{
                     background: `radial-gradient(circle at ${tilt.hx}% ${tilt.hy}%, rgba(255,255,255,0.12), transparent 55%)`

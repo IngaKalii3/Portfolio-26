@@ -14,7 +14,7 @@ const skillCategories = [{
   skills: ["UX/UI Design", "Content Strategy", "Blockchain", "Process Automation", "Dashboard Development"]
 }];
 export const SkillsSection = () => {
-  return <section id="skills" className="relative py-14 sm:py-16 md:py-24 overflow-hidden">
+  return <section id="skills" className="relative py-14 sm:py-16 md:py-24 overflow-hidden bg-fuchsia-50">
       {/* subtle depth background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-24 right-[-7rem] w-[22rem] h-[22rem] bg-primary/10 rounded-full blur-3xl" />

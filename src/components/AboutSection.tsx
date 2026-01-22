@@ -18,7 +18,7 @@ const highlights = [{
   description: "3+ years optimizing operations for DoD and federal agencies"
 }];
 export const AboutSection = () => {
-  return <section id="about" className="py-20 md:py-32 bg-muted/30">
+  return <section id="about" className="py-20 bg-fuchsia-50 md:py-[28px]">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Image Side */}

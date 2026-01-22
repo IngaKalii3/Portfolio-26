@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Github } from "lucide-react";
 import { WindowCard } from "./WindowCard";
 export const ContactSection = () => {
-  return <section id="contact" className="py-20 md:py-[28px] bg-fuchsia-100">
+  return <section id="contact" className="py-20 md:py-[28px] bg-fuchsia-50">
       <div className="container mx-auto md:px-8 px-[22px]">
         <div className="max-w-2xl mx-auto text-center space-y-4 mb-12">
           <p className="font-mono text-sm text-primary">Get In Touch</p>
