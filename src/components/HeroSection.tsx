@@ -167,7 +167,7 @@ const ContactRow = ({
   icon: React.ReactNode;
   text: string;
   href?: string;
-}) => <div className="flex items-center gap-2 font-mono">
+}) => <div className="gap-2 font-mono flex items-start justify-start">
     <span className="text-primary w-3.5 h-3.5">{icon}</span>
     {href ? <a href={href} className="hover:text-primary transition break-all">
         {text}
