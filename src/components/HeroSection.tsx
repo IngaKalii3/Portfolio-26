@@ -111,7 +111,7 @@ export const HeroSection = () => {
 
                     <WindowCard title="contact.json" className="shadow-card border border-foreground/10 bg-background/60 backdrop-blur rounded-2xl">
                       <div className="space-y-6 p-5">
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-primary/20 to-accent/40 rounded-full mx-auto flex items-center justify-center border border-foreground/10">
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-primary/20 to-accent/40 rounded-full mx-auto flex items-center justify-center border border-foreground/10 bg-purple-300">
                           <span className="font-display text-2xl sm:text-3xl font-bold">IK</span>
                         </div>
 
