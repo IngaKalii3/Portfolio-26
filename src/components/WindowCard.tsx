@@ -21,6 +21,6 @@ export const WindowCard = ({
         </div>
         {title}
       </div>
-      <div className="p-4 md:p-6 bg-primary-foreground px-[20px] py-[20px]">{children}</div>
+      <div className="p-4 md:p-6 bg-primary-foreground px-[20px] py-[20px] border-fuchsia-400 border border-dotted">{children}</div>
     </div>;
 };
