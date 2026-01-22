@@ -40,7 +40,7 @@ export const SkillsSection = () => {
                   {category.title}
                 </h3>
 
-                <div className="flex-wrap gap-[6px] flex items-start justify-center">
+                <div className="flex flex-wrap gap-[6px]">
                   {category.skills.map(skill => <span key={skill} className="inline-flex items-center justify-center py-1 text-[11px] sm:text-xs font-mono rounded-full border border-foreground/10 bg-background/60 transition-all hover:border-primary/40 hover:bg-primary/5 active:scale-[0.98] cursor-default text-center px-[4px] text-black">
                       {skill}
                     </span>)}
