@@ -54,18 +54,18 @@ export const ExperienceSection = () => {
                       <p className="text-muted-foreground">{exp.company}</p>
                     </div>
                     <div className="flex flex-wrap gap-4 text-sm text-muted-foreground font-mono">
-                      <span className="flex items-center gap-1">
+                      <span className="flex items-center gap-1 text-xs font-normal">
                         <Calendar className="w-4 h-4" />
                         {exp.period}
                       </span>
-                      <span className="flex items-center gap-1">
+                      <span className="flex items-center gap-1 text-xs font-medium">
                         <MapPin className="w-4 h-4" />
                         {exp.location}
                       </span>
                     </div>
                   </div>
 
-                  <span className="inline-block px-3 py-1 bg-accent/50 text-accent-foreground text-xs font-mono rounded-full">
+                  <span className="inline-block bg-accent/50 text-accent-foreground text-xs font-mono rounded-full px-[8px] py-[6px]">
                     {exp.type}
                   </span>
 

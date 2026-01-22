@@ -19,9 +19,7 @@ export const WindowCard = ({
           <span className="window-dot window-dot-yellow" />
           <span className="window-dot window-dot-green" />
         </div>
-        {title && <span className="font-mono text-xs text-muted-foreground ml-2">
-            {title}
-          </span>}
+        {title}
       </div>
       <div className="p-4 md:p-6 bg-primary-foreground">{children}</div>
     </div>;

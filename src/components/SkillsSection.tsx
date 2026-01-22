@@ -78,7 +78,7 @@ function TiltCard({
             hover:shadow-card transition-shadow duration-300
           ">
           {/* tighter padding for compact look */}
-          <div className="p-4 sm:p-5">{children}</div>
+          <div className="p-4 sm:p-5 px-[18px] py-[18px]">{children}</div>
         </WindowCard>
       </div>
     </div>;
