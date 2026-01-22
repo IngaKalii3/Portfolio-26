@@ -1,16 +1,18 @@
 import React, { useMemo, useRef, useState } from "react";
 import { ArrowDown, Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import { WindowCard } from "./WindowCard";
-
 export const HeroSection = () => {
   const laptopRef = useRef<HTMLDivElement | null>(null);
-  const [tilt, setTilt] = useState({ rx: 0, ry: 0, hx: 50, hy: 35 });
-
+  const [tilt, setTilt] = useState({
+    rx: 0,
+    ry: 0,
+    hx: 50,
+    hy: 35
+  });
   const supportsHover = useMemo(() => {
     if (typeof window === "undefined") return false;
     return window.matchMedia?.("(hover: hover) and (pointer: fine)")?.matches ?? false;
   }, []);
-
   const onMove = (e: React.MouseEvent) => {
     if (!supportsHover) return;
     const el = laptopRef.current;
@@ -18,20 +20,24 @@ export const HeroSection = () => {
     const r = el.getBoundingClientRect();
     const x = e.clientX - r.left;
     const y = e.clientY - r.top;
-
-    const px = (x / r.width) * 100;
-    const py = (y / r.height) * 100;
-
-    const ry = ((x - r.width / 2) / r.width) * 14;
+    const px = x / r.width * 100;
+    const py = y / r.height * 100;
+    const ry = (x - r.width / 2) / r.width * 14;
     const rx = -((y - r.height / 2) / r.height) * 10;
-
-    setTilt({ rx, ry, hx: px, hy: py });
+    setTilt({
+      rx,
+      ry,
+      hx: px,
+      hy: py
+    });
   };
-
-  const onLeave = () => setTilt({ rx: 0, ry: 0, hx: 50, hy: 35 });
-
-  return (
-    <section className="relative overflow-hidden min-h-screen flex items-center pt-16 pb-16 sm:pb-20">
+  const onLeave = () => setTilt({
+    rx: 0,
+    ry: 0,
+    hx: 50,
+    hy: 35
+  });
+  return <section className="relative overflow-hidden min-h-screen flex items-center pt-16 pb-16 sm:pb-20">
       {/* Decorative glows */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-24 right-[-7rem] w-[22rem] h-[22rem] bg-accent/25 rounded-full blur-3xl" />
@@ -64,28 +70,17 @@ export const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-xl hover:bg-primary/90 transition-colors shadow-card"
-              >
+              <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-xl hover:bg-primary/90 transition-colors shadow-card">
                 Get in Touch
                 <ArrowDown className="w-4 h-4 rotate-[-45deg]" />
               </a>
 
-              <a
-                href="#experience"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 bg-background/40 backdrop-blur font-mono text-sm rounded-xl hover:bg-muted/60 transition-colors"
-              >
+              <a href="#experience" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 bg-background/40 backdrop-blur font-mono text-sm rounded-xl hover:bg-muted/60 transition-colors">
                 View Experience
               </a>
 
               {/* ✅ LinkedIn */}
-              <a
-                href="https://www.linkedin.com/in/ik11/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 bg-background/40 backdrop-blur font-mono text-sm rounded-xl hover:bg-muted/60 transition-colors"
-              >
+              <a href="https://www.linkedin.com/in/ik11/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-foreground/20 bg-background/40 backdrop-blur font-mono text-sm rounded-xl hover:bg-muted/60 transition-colors">
                 LinkedIn <Linkedin className="w-4 h-4" />
               </a>
             </div>
@@ -93,50 +88,28 @@ export const HeroSection = () => {
 
           {/* Right: 3D Laptop UI */}
           <div className="animate-fade-up stagger-2">
-            <div
-              ref={laptopRef}
-              onMouseMove={onMove}
-              onMouseLeave={onLeave}
-              className="mx-auto lg:ml-auto max-w-md sm:max-w-lg [perspective:1200px]"
-            >
-              <div
-                className="relative transition-transform duration-200 will-change-transform motion-reduce:transform-none"
-                style={{
-                  transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`,
-                }}
-              >
+            <div ref={laptopRef} onMouseMove={onMove} onMouseLeave={onLeave} className="mx-auto lg:ml-auto max-w-md sm:max-w-lg [perspective:1200px]">
+              <div className="relative transition-transform duration-200 will-change-transform motion-reduce:transform-none" style={{
+              transform: `rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`
+            }}>
                 {/* glossy highlight */}
-                <div
-                  className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] blur-2xl opacity-70"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 30% 20%, rgba(124,58,237,0.22), transparent 55%), radial-gradient(circle at 70% 80%, rgba(34,197,94,0.15), transparent 55%)",
-                  }}
-                />
+                <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] blur-2xl opacity-70" style={{
+                background: "radial-gradient(circle at 30% 20%, rgba(124,58,237,0.22), transparent 55%), radial-gradient(circle at 70% 80%, rgba(34,197,94,0.15), transparent 55%)"
+              }} />
 
                 {/* Screen */}
                 <div className="relative rounded-3xl border border-foreground/10 bg-background/60 backdrop-blur shadow-window overflow-hidden">
                   {/* Screen bezel */}
-                  <div className="px-4 py-3 border-b border-foreground/10 bg-background/60">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
-                      </div>
-                      <span className="font-mono text-xs text-muted-foreground">portfolio://contact</span>
-                    </div>
+                  <div className="px-4 py-3 border-b bg-accent border border-purple-400 border-solid">
+                    
                   </div>
 
                   {/* Screen content */}
                   <div className="relative p-5 sm:p-6">
                     {/* follow-cursor sheen */}
-                    <div
-                      className="pointer-events-none absolute inset-0 opacity-80"
-                      style={{
-                        background: `radial-gradient(circle at ${tilt.hx}% ${tilt.hy}%, rgba(255,255,255,0.12), transparent 55%)`,
-                      }}
-                    />
+                    <div className="pointer-events-none absolute inset-0 opacity-80" style={{
+                    background: `radial-gradient(circle at ${tilt.hx}% ${tilt.hy}%, rgba(255,255,255,0.12), transparent 55%)`
+                  }} />
 
                     <WindowCard title="contact.json" className="shadow-card border border-foreground/10 bg-background/60 backdrop-blur rounded-2xl">
                       <div className="space-y-6 p-5">
@@ -147,10 +120,7 @@ export const HeroSection = () => {
                         <div className="space-y-3">
                           <div className="flex items-center gap-3 text-sm">
                             <Mail className="w-4 h-4 text-primary" />
-                            <a
-                              href="mailto:ingakaltak7@gmail.com"
-                              className="font-mono hover:text-primary transition-colors break-all"
-                            >
+                            <a href="mailto:ingakaltak7@gmail.com" className="font-mono hover:text-primary transition-colors break-all">
                               ingakaltak7@gmail.com
                             </a>
                           </div>
@@ -168,26 +138,16 @@ export const HeroSection = () => {
                           {/* ✅ LinkedIn inside the “screen” too */}
                           <div className="flex items-center gap-3 text-sm">
                             <Linkedin className="w-4 h-4 text-primary" />
-                            <a
-                              href="https://www.linkedin.com/in/ik11/"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="font-mono hover:text-primary transition-colors break-all"
-                            >
+                            <a href="https://www.linkedin.com/in/ik11/" target="_blank" rel="noopener noreferrer" className="font-mono hover:text-primary transition-colors break-all">
                               linkedin.com/in/ik11
                             </a>
                           </div>
                         </div>
 
                         <div className="flex flex-wrap gap-2 pt-1 justify-center">
-                          {["AI Policy", "Cybersecurity", "Consulting"].map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-3 py-1 bg-secondary/70 text-secondary-foreground text-[11px] sm:text-xs font-mono rounded-full border border-foreground/10"
-                            >
+                          {["AI Policy", "Cybersecurity", "Consulting"].map(tag => <span key={tag} className="px-3 py-1 bg-secondary/70 text-secondary-foreground text-[11px] sm:text-xs font-mono rounded-full border border-foreground/10">
                               {tag}
-                            </span>
-                          ))}
+                            </span>)}
                         </div>
                       </div>
                     </WindowCard>
@@ -211,6 +171,5 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
