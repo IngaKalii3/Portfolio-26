@@ -14,7 +14,7 @@ export const WindowCard = ({
 }: WindowCardProps) => {
   return <div className={cn("window-card", className)}>
       <div className={cn("window-header", headerClassName)}>
-        <div className="flex gap-[4px]">
+        <div className="flex gap-1.5">
           <span className="window-dot window-dot-red" />
           <span className="window-dot window-dot-yellow" />
           <span className="window-dot window-dot-green" />
@@ -23,6 +23,6 @@ export const WindowCard = ({
             {title}
           </span>}
       </div>
-      <div className="p-4 md:p-6 bg-primary-foreground py-[4px] px-[10px]">{children}</div>
+      <div className="p-4 md:p-6 bg-primary-foreground">{children}</div>
     </div>;
 };
