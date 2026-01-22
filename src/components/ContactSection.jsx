@@ -5,7 +5,9 @@ import {
   Phone,
   MapPin,
   ArrowUpRight,
-  Send
+  Send,
+  Linkedin,
+  Github
 } from "lucide-react";
 import { WindowCard } from "./WindowCard";
 
@@ -19,20 +21,12 @@ export const ContactSection = () => {
     setLoading(true);
     setSuccess(false);
 
-    // File size validation (5MB max)
-    const file = formRef.current.attachment?.files[0];
-    if (file && file.size > 5 * 1024 * 1024) {
-      alert("File size must be under 5MB");
-      setLoading(false);
-      return;
-    }
-
     try {
       await emailjs.sendForm(
-        "altruisticxai_1994",     // SERVICE ID
-        "portfolio_form11",       // TEMPLATE ID
+        "altruisticxai_1994",   // SERVICE ID
+        "portfolio_form11",     // TEMPLATE ID
         formRef.current,
-        "ef4gt_YB35_O5nFin"       // PUBLIC KEY
+        "ef4gt_YB35_O5nFin"     // PUBLIC KEY
       );
 
       setSuccess(true);
@@ -61,8 +55,8 @@ export const ContactSection = () => {
 
         <div className="max-w-lg mx-auto">
           <WindowCard title="connect.sh" className="shadow-window">
-            <div className="space-y-8">
-              {/* CONTACT FORM */}
+            <div className="space-y-6">
+              {/* EMAILJS FORM */}
               <form
                 ref={formRef}
                 onSubmit={sendEmail}
@@ -92,14 +86,6 @@ export const ContactSection = () => {
                   className="w-full p-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
                 />
 
-                {/* FILE UPLOAD */}
-                <input
-                  type="file"
-                  name="attachment"
-                  accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                  className="w-full p-3 rounded-lg bg-muted border border-border file:border-0 file:bg-primary file:text-primary-foreground file:px-3 file:py-1 file:rounded-md"
-                />
-
                 <button
                   type="submit"
                   disabled={loading}
@@ -117,10 +103,10 @@ export const ContactSection = () => {
               </form>
 
               {/* CONTACT INFO */}
-              <div className="space-y-4">
+              <div className="space-y-4 pt-4 border-t border-border">
                 <a
                   href="mailto:ingakaltak7@gmail.com"
-                  className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-accent transition group"
+                  className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-accent transition-colors group"
                 >
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-primary" />
@@ -131,12 +117,12 @@ export const ContactSection = () => {
                       </p>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary" />
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </a>
 
                 <a
                   href="tel:2157915906"
-                  className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-accent transition group"
+                  className="flex items-center justify-between p-4 bg-muted rounded-lg hover:bg-accent transition-colors group"
                 >
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-primary" />
@@ -147,16 +133,18 @@ export const ContactSection = () => {
                       </p>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary" />
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </a>
 
-                <div className="flex items-center p-4 bg-muted rounded-lg">
-                  <MapPin className="w-5 h-5 text-primary mr-3" />
-                  <div>
-                    <p className="font-mono text-sm font-medium">Location</p>
-                    <p className="text-muted-foreground text-sm">
-                      Philadelphia, Pennsylvania
-                    </p>
+                <div className="flex items-center justify-between p-4 bg-muted rounded-lg">
+                  <div className="flex items-center gap-3">
+                    <MapPin className="w-5 h-5 text-primary" />
+                    <div>
+                      <p className="font-mono text-sm font-medium">Location</p>
+                      <p className="text-muted-foreground text-sm">
+                        Philadelphia, Pennsylvania
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
