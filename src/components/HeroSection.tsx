@@ -164,9 +164,7 @@ export const HeroSection = () => {
                 <div className="mx-auto mt-2 w-[85%] h-6 rounded-full bg-black/20 blur-xl -z-10 relative" />
               </div>
 
-              <p className="mt-4 text-xs sm:text-sm text-muted-foreground text-center lg:text-right">
-                Tip: hover the laptop for depth ✨
-              </p>
+              
             </div>
           </div>
         </div>
