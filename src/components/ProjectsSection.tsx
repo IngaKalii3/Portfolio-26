@@ -121,7 +121,7 @@ export const ProjectsSection: React.FC = () => {
   useEffect(() => {
     requestAnimationFrame(() => scrollToCard(scrollerRef.current, 0));
   }, [tab]);
-  return <section id="projects" className="relative overflow-hidden py-14 sm:py-16 md:py-24">
+  return <section id="projects" className="relative overflow-hidden py-14 sm:py-16 md:py-24 bg-fuchsia-100">
       {/* subtle depth bg */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-24 right-[-7rem] w-[22rem] h-[22rem] bg-primary/10 rounded-full blur-3xl" />

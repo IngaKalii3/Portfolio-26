@@ -30,7 +30,7 @@ const experiences = [{
   highlights: ["Produced ROI and cost-benefit analyses to inform executive budgeting and investment decisions", "Improved operational efficiency by 25% through process analysis and data-driven recommendations", "Streamlined reporting workflows, reducing data retrieval time by approximately 30%"]
 }];
 export const ExperienceSection = () => {
-  return <section id="experience" className="py-20 md:py-32">
+  return <section id="experience" className="py-20 md:py-32 bg-fuchsia-100">
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="mb-12 space-y-4">
